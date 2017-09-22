@@ -1,0 +1,7 @@
+<h1><center><%= @chapter.title %></center></h1>
+<p><%= @chapter.body %></p>
+<% @sections.each do |section| %>
+  <a href="/sections/<%= section.id %>"><%= section.title %></a>
+<% end %>
+<hr>
+<%= link_to "Add Section", new_section_path%>

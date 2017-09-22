@@ -1,1 +1,7 @@
-<%= render "coursechap" %>
+<h1><center><%= @course.title %></center></h1>
+<p><%= @course.about %></p>
+<% @chapters.each do |chapter| %>
+  <a href="/chapters/<%= chapter.id %>"><%= chapter.title %></a>
+<% end %>
+<hr>
+<%= link_to "Add Chapter", new_chapter_path %>

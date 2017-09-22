@@ -1,0 +1,6 @@
+<%= form_for @chapter, url: create_chapter_path do |f|%>
+  <%= f.text_field :title, placeholder: "title ..." %><br>
+  <%= f.text_area :body, placeholder: "About the subject..."%><br>
+  <%= f.text_field :tags %><br>
+  <%= f.submit %>
+<% end %>

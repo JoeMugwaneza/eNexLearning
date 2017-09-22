@@ -10,7 +10,7 @@
             </a>
         </li>
         <li>
-            <a href="#">Home</a>
+            <a href="/">Home</a>
         </li>
         <li>
             <a href="#">About</a>
@@ -42,10 +42,41 @@
             <a href="https://twitter.com/maridlcrmn">Follow me</a>
         </li>
         <li>
-            <%= link_to "logout", destroy_user_session_path, method: :delete %>
+        <%= link_to "logout", destroy_user_session_path, method: :delete if user_signed_in?%>
+        <%= link_to "Login", new_user_session_path unless user_signed_in?%>
         </li>
     </ul>
 </nav>
+<script type="text/javascript"> 
+    $(document).ready(function () {
+      var trigger = $('.hamburger'),
+          overlay = $('.overlay'),
+         isClosed = false;
+
+        trigger.click(function () {
+          hamburger_cross();      
+        });
+
+        function hamburger_cross() {
+
+          if (isClosed == true) {          
+            overlay.hide();
+            trigger.removeClass('is-open');
+            trigger.addClass('is-closed');
+            isClosed = false;
+          } else {   
+            overlay.show();
+            trigger.removeClass('is-closed');
+            trigger.addClass('is-open');
+            isClosed = true;
+          }
+      }
+      
+      $('[data-toggle="offcanvas"]').click(function () {
+            $('#wrapper').toggleClass('toggled');
+      });  
+    });
+</script>
 <!-- /#sidebar-wrapper -->
 
 <!-- Page Content -->
