@@ -1,0 +1,6 @@
+<%= form_for @course, url: create_course_path do |f|%>
+  <%= f.text_field :title, placeholder: "title ..." %><br>
+  <%= f.text_area :about, placeholder: "about the course...." %><br>
+  <%= f.hidden_field :instructor_id, value: current_user.id %>
+  <%= f.submit %>
+<% end %>

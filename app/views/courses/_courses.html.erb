@@ -1,0 +1,56 @@
+<% @courses.each_slice(4) do |sliced_courses| %>
+  <div class="container mt-4">
+    <div class="row">
+      <% if sliced_courses.first %>
+        <div class="col-sm-6">
+            <div class="card card-default">
+                <div class="card-header">
+                    <h3 class="card-title"><%= link_to "#{sliced_courses.first.title}", course_path(sliced_courses.first) %></h3>
+                </div>
+                <div class="card-block">
+                    <p><%= sliced_courses.first.about %></p>
+                </div>
+            </div>
+        </div>
+      <% end %>
+      <% if sliced_courses.second %>
+        <div class="col-sm-6">
+            <div class="card card-primary">
+                <div class="card-header">
+                    <h3 class="card-title"><%= link_to  "#{sliced_courses.second.title}", course_path(sliced_courses.second) %></h3>
+                </div>
+                <div class="card-block">
+                    <p><%= sliced_courses.first.about %></p>
+                </div>
+            </div>
+        </div>
+      <% end %>
+      </div>
+      <div class="row">
+      <% if sliced_courses.third %>
+        <div class="col-sm-6">
+            <div class="card card-success">
+                <div class="card-header">
+                    <h3 class="card-title"><%= link_to "#{sliced_courses.third.title}", course_path(sliced_courses.third) %></h3>
+                </div>
+                <div class="card-block">
+                    <p><%= sliced_courses.third.about %></p>
+                </div>
+            </div>
+        </div>
+      <% end %>
+      <% if sliced_courses.fourth %>
+        <div class="col-sm-6">
+            <div class="card card-warning">
+                <div class="card-header">
+                    <h3 class="card-title"><%= link_to "#{sliced_courses.fourth.title}", course_path(sliced_courses.fourth) %></h3>
+                </div>
+                <div class="card-block">
+                    <p><%= sliced_courses.fourth.about %></p>
+                </div>
+            </div>
+        </div>
+      <% end %>
+      </div>
+  </div>
+<% end %>

@@ -1,0 +1,5 @@
+<%= form_for @section, url: create_section_path do |f| %>
+  <%= f.text_field :title, placeholder: "Section title ... "%><br>
+  <%= f.text_area :content, placeholder: "Learning materials ..."%><br>
+  <%= f.submit %>
+<% end %>

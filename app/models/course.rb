@@ -4,4 +4,7 @@ class Course < ApplicationRecord
   belongs_to :instructor, class_name: 'User'
   has_many :course_registrations, foreign_key: :lesson_id
   has_many :learners, through: :course_registrations
+  validates_presence_of :title
+  validates_presence_of :instructor_id
+  validates_presence_of :subject_id
 end
