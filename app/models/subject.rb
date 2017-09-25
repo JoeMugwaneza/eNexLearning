@@ -5,4 +5,9 @@ class Subject < ApplicationRecord
   def modified_date
    self.updated_at.strftime("%d %b. %Y")
   end
+
+  def self.search(query)
+    query = query.downcase
+    where("lower(title) like ? OR lower(description) like?", "%#{query}%", "%#{query}%")
+  end
 end

@@ -14,4 +14,6 @@
 //= require jquery 
 //= require bootstrap-sprockets
 //= require turbolinks
+//= require redactor-rails
+//= require ckeditor/init
 //= require_tree .

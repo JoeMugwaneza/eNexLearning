@@ -5,6 +5,7 @@ class SectionsController < ApplicationController
 
   def new
     @section = Section.new
+    render :new
   end
 
   def create

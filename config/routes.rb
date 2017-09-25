@@ -14,4 +14,6 @@ Rails.application.routes.draw do
   post "/courses/:id/chapters", to: 'chapters#create', as: :create_chapter
   get "/chapters/:id/sections/new", to: 'sections#new', as: :new_section
   post "/chapters/:id/sections", to: 'sections#create', as: :create_section
+  post "/search", to: 'searches#search', as: :search
+  get "/search_results", to: 'searches#index', as: :search_results
 end

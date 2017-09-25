@@ -29,17 +29,24 @@
           </ul>
         </li>
       </ul>
+        <!-- <datalist id="auto_query">
+          <% Course.all.each do |course| %>
+            <option value="<%= course.title %>">
+          <% end %>
+        </option> -->
       <div class="col-sm-3 col-md-3">
-         <form id="mega-search" class="navbar-form navbar-right" role="search">
+        <%= form_tag "/search", method: :post do %>
+         <div id="mega-search" class="navbar-form navbar-right" role="search" method="get" >
             <div class="input-group">
-                <input type="text" class="form-control" placeholder="Search...">
+                <input type="text" name="query" class="form-control" placeholder="Search..." list="auto_query">
                 <span class="input-group-btn">
                     <button class="btn btn-default" type="button">
                         <i class="glyphicon glyphicon-search"></i>
                     </button>
                 </span>
             </div>
-        </form> 
+        </div>
+        <% end %>
       </div>
       <ul class="nav navbar-nav navbar-right">
         <li><a href="#">Link</a></li>
