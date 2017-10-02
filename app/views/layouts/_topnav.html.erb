@@ -30,16 +30,19 @@
         </li>
       </ul>
       <div class="col-sm-3 col-md-3">
-         <form id="mega-search" class="navbar-form navbar-right" role="search">
-            <div class="input-group">
-                <input type="text" class="form-control" placeholder="Search...">
-                <span class="input-group-btn">
-                    <button class="btn btn-default" type="button">
-                        <i class="glyphicon glyphicon-search"></i>
-                    </button>
-                </span>
+          <%= form_tag "/search", method: :post do %>
+            <div id="mega-search" class="navbar-form navbar-right" role="search" method="get" >
+              <div class="input-group">
+                <input type="text" name="query" class="form-control" placeholder="Search..." list="auto_query">
+                 <span class="input-group-btn">
+                     <button class="btn btn-default" type="button">
+                         <i class="glyphicon glyphicon-search"></i>   
+                     </button>
+                 </span>
+                 </span>
+              </div>
             </div>
-        </form> 
+          <% end %>
       </div>
       <ul class="nav navbar-nav navbar-right">
         <li><a href="#">Link</a></li>
