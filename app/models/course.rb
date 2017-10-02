@@ -8,7 +8,11 @@ class Course < ApplicationRecord
   validates_presence_of :instructor_id
   validates_presence_of :subject_id
   
-   def self.search(query)
+  def modified_date
+   self.updated_at.strftime("%d %b. %Y")
+  end
+  
+  def self.search(query)
     query = query.downcase
     where("lower(title) like ? OR lower(about) like?", "%#{query}%", "%#{query}%")
   end

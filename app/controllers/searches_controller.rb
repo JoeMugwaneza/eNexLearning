@@ -4,8 +4,9 @@ class SearchesController < ApplicationController
      
   end
   def search
-   @results = Subject.search(params[:query]) + Course.search(params[:query]) + Chapter.search(params[:query]) +Section.search(params[:query])
+   @results = Course.search(params[:query]) + Chapter.search(params[:query]) +Section.search(params[:query])
    render :index
+   @subjects = Subject.search(params[:query])
   end
 
 end
