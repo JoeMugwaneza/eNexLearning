@@ -1,9 +1,6 @@
-<%= @results if @results.any? %>
-<%= "No match found" unless @results.any? %>
-
 <div class="container">
     <hgroup class="mb20">
-    <h1>Search Results</h1>
+    <center><h1>Search Results</h1></center>
     <h2 class="lead"><strong class="text-danger"><%= @results.length %></strong> results were found for the search for <strong class="text-danger">eNexLearning</strong></h2>               
   </hgroup>
 
@@ -22,8 +19,25 @@
             </ul>
           </div>
           <div class="col-xs-12 col-sm-12 col-md-7 excerpet">
-            <h3><%=link_to "#{result.class.name}: #{result.title}", %></a></h3>
-            <p><%= "#{result.about if result.class.name == "Course"} #{result.body if result.class.name == "Chapter"} #{result.chapter.content if result.class.name == "Section"}" %></p>            
+            <% myUrl = "#{result.class.name.downcase}"+"s" %>
+            <% if result.class.name == "Course" %>
+              <h3><a href="/courses/<%= result.id %>"><b>Course:</b><%= result.title %></a></h3>
+              <p><%= result.about %></p> 
+                <li>
+                  <% result.chapters.each do |chapter| %>
+                    <ul><a href="/chapters/<%= chapter.id %>"><small><b>Chapter:</b><%= chapter.title %></small></a></ul>
+                  <% end %>
+                </li>  
+            <% elsif result.class.name == "Chapter"%>
+              <h3><a href="/chapters/<%= result.id %>"><b>Chapter:</b><%= result.title %></a></h3>
+              <p><%= result.body %></p>  
+              <% result.sections.each do |section| %>
+                <ul><a href="/sections/<%= section.id %>"><small><b>Section:</b><%= section.title %></small></a></ul>
+              <% end %> 
+            <% elsif result.class.name == "Section"%>
+              <h3><a href="/sections/<%= result.id %>"><b>Section:</b><%= result.title %></a></h3>
+              <p><%= result.content %></p> 
+            <% end %>         
             <span class="plus"><a href="#" title="Lorem ipsum"><i class="glyphicon glyphicon-plus"></i></a></span>
           </div>
           <span class="clearfix borda"></span>
