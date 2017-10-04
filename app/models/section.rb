@@ -8,4 +8,8 @@ class Section < ApplicationRecord
     query = query.downcase
     where("lower(title) like ? OR lower(content) like?", "%#{query}%", "%#{query}%")
   end
+  
+  def course
+    self.chapter.course
+  end
 end

@@ -1,6 +1,7 @@
 class SubjectsController < ApplicationController
   def index
     @subjects = Subject.all
+    @threeSubjects = Subject.all.order("created_at ASC").limit(4)
   end
 
   def show

@@ -4,11 +4,8 @@
         <div class="carousel-inner">
             <div class="item active" data-slide-bg="0">
                 <div class="col-md-6">
-                    <h3>Headline</h3>
-                    <p>
-                        Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod
-                        tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. Lorem
-                        ipsum dolor sit amet, consetetur sadipscing elitr.</p>
+                    <h3><%= @threeSubjects.first.title %></h3>
+                    <p><%= @threeSubjects.first.description %></p>
                 </div>
                 <div class="col-md-6">
                     <img  src="http://www.w3.org/html/logo/downloads/HTML5_1Color_Black.png" height="340" align="center" class="center" />
@@ -18,49 +15,34 @@
             <div class="item" data-slide-bg="1">
                 <img src="http://placehold.it/1200x400/e67e22/ffffff&text=Projects">
                 <div class="carousel-caption">
-                    <h3>Headline</h3>
-                    <p>
-                        Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod
-                        tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. Lorem
-                        ipsum dolor sit amet, consetetur sadipscing elitr.</p>
+                    <h3><%= @threeSubjects.second.title %></h3>
+                    <p><%= @threeSubjects.second.description %></p>
                 </div>
             </div>
             <!-- End Item -->
             <div class="item" data-slide-bg="2">
                 <img src="http://placehold.it/1200x400/2980b9/ffffff&text=Portfolio">
                 <div class="carousel-caption">
-                    <h3>
-                        Headline</h3>
-                    <p>
-                        Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod
-                        tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. Lorem
-                        ipsum dolor sit amet, consetetur sadipscing elitr.</p>
+                    <h3><%= @threeSubjects.third.title %></h3>
+                    <p><%= @threeSubjects.third.description %></p>
                 </div>
             </div>
             <!-- End Item -->
             <div class="item" data-slide-bg="3">
                 <img src="http://placehold.it/1200x400/8e44ad/ffffff&text=Services">
                 <div class="carousel-caption">
-                    <h3>
-                        Headline</h3>
-                    <p>
-                        Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod
-                        tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. Lorem
-                        ipsum dolor sit amet, consetetur sadipscing elitr.</p>
+                    <h3><%= @threeSubjects.fourth.description %></h3>
+                    <p><%= @threeSubjects.fourth.description %></p>
                 </div>
             </div>
             <!-- End Item -->
         </div>
         <!-- End Carousel Inner -->
         <ul class="nav nav-pills nav-justified">
-            <li data-target="#myCarousel" data-slide-to="0" class="active"><a href="#">About<small>Lorem
-                ipsum dolor sit</small></a></li>
-            <li data-target="#myCarousel" data-slide-to="1"><a href="#">Projects<small>Lorem ipsum
-                dolor sit</small></a></li>
-            <li data-target="#myCarousel" data-slide-to="2"><a href="#">Portfolio<small>Lorem ipsum
-                dolor sit</small></a></li>
-            <li data-target="#myCarousel" data-slide-to="3"><a href="#">Services<small>Lorem ipsum
-                dolor sit</small></a></li>
+            <li data-target="#myCarousel" data-slide-to="0" class="active"><a href="#"><%= @threeSubjects.first.title %></a></li>
+            <li data-target="#myCarousel" data-slide-to="1"><a href="#"><%= @threeSubjects.second.title %></a></li>
+            <li data-target="#myCarousel" data-slide-to="2"><a href="#"><%= @threeSubjects.third.title %></a></li>
+            <li data-target="#myCarousel" data-slide-to="3"><a href="#"><%= @threeSubjects.fourth.title %></a></li>
         </ul>
     </div>
     <!-- End Carousel -->

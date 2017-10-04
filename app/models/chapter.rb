@@ -7,4 +7,8 @@ class Chapter < ApplicationRecord
     query = query.downcase
     where("lower(title) like ? OR lower(body) like? OR lower(tags) like ?", "%#{query}%", "%#{query}%", "%#{query}%")
   end
+
+  def subject
+    self.course.subject
+  end
 end

@@ -58,3 +58,6 @@ gem 'devise'
 # Text editor 
 gem 'redactor-rails'
 gem 'ckeditor', github: 'galetahub/ckeditor'
+
+#git ignore
+gem 'dotenv-rails', require: 'dotenv/rails-now'

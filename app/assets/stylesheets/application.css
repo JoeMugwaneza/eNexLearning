@@ -165,7 +165,7 @@
  }
 
  .sidebar-nav > .sidebar-brand {
-     height: 65px;
+     height: 150px;
      font-size: 20px;
      line-height: 44px;
  }
@@ -314,4 +314,30 @@
 /* topnav*/
 .top-nav {
   margin-left: 8%;
+}
+
+/*profile card*/
+.avatar {
+    display: inline-block;
+    width: 46px;
+    height: 46px;
+    margin-right: 15px;
+    vertical-align: top;
+    border: 0;
+    -webkit-border-radius: 50%;
+    -moz-border-radius: 50%;
+    border-radius: 50%;
+}
+
+
+
+.myProfile {
+    width: 80px;
+    height: 80px;
+    max-width: 100px;
+    max-height: 100px;
+    -webkit-border-radius: 50%;
+    -moz-border-radius: 50%;
+    border-radius: 50%;
+    border: 5px solid rgba(255,255,255,0.5);
 }
