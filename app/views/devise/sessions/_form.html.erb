@@ -1,55 +1,46 @@
-<!-- Author: ArrayForm
-<!-- Author: ArrayForm
-Author URL: http://arrayform.com -->
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml">
-<head>
-<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<link href="css/bootstrap.min.css" rel='stylesheet' type='text/css' />
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<link rel="stylesheet" href="css/style.css" type="text/css" />
-</head>
-<body>
- <div class="main" style="padding:2%;margin-top:5%;">         
- <div class="col-lg-12">
-         <div class="container">             
-               <div class="col-lg-4"></div>
-         <div class="col-lg-4">
-         <div class="row grids text-center">
-          <div class="view view-tenth">
-              <!--  <a href="single.html">-->
-               <div class="inner_content clearfix">
-          <div class="product_image">
-            <img src="http://www.arrayform.com/wp-content/uploads/2017/02/user@2x.png" class="img-responsive" alt="" style="margin:0% auto;"/>
-                     </div>
-          <div class="label-product">
-            <span class="new">USER LOGIN</span> 
-          </div>
-          <div class="mask" style="width:100% !important;">
-            <h2>Welcome User</h2>
-                        <div class="main">
-              <form>
-              <input type="text" class="text" value="E-mail address" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'E-mail address';}" >
-              <input type="password" value="Password" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'Password';}">
-              <div class="submit"><input type="submit" onclick="myFunction()" value="Sign in" ></div>
-              <div class="clearfix"></div>
-              </form>
+<section id="login">
+    <div class="container">
+      <div class="row">
+          <div class="col-xs-12">
+              <div class="form-wrap">
+                <h1>Login</h1>
+                    <div role="form" action="javascript:;" method="post" id="login-form" autocomplete="off">
+                      <%= form_for(resource, id: "login-form", autocomplete:"off", as: resource_name, url: session_path(resource_name)) do |f| %>
+                        <div class="form-group">
+                            <label for="email" class="sr-only">Email</label>
+                            <%= f.text_field :login, autofocus: true, id:"email", class:"form-control", placeholder:"somebody@example.com"%>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="key" class="sr-only">Password</label>
+                            <%= f.password_field :password, autocomplete: "off", id:"key", class: "form-control", placeholder: "Password" %>
+                        </div>
+                        <div class="checkbox">
+                            <span class="character-checkbox" onclick="showPassword()"></span>
+                            <span class="label">Show password</span>
+                        </div>
+
+                        <div class="actions">
+                          <%= f.submit "Log in", id: "btn-login", class: "btn btn-custom btn-lg btn-block"%>
+                        </div>
+                      <% end %>
+                    </div>
+                    <a href="javascript:;" class="forget" data-toggle="modal" data-target=".forget-modal">Forgot your password?</a>
+                    <%= render "devise/shared/links" %>
+                    <hr>
+              </div>
+        </div> <!-- /.col-xs-12 -->
+      </div> <!-- /.row -->
+    </div> <!-- /.container -->
+</section>
+
+<footer id="footer">
+    <div class="container">
+        <div class="row">
+            <div class="col-xs-12">
+                <p>Page © - 2017</p>
+                <p>Powered by <strong><a href="http://www.facebook.com/tavo.qiqe.lucero" target="_blank">LucDev</a></strong></p>
             </div>
-          </div>
-              
-              </div>
-          </div>
-              </div>
-            <!--  </a> -->
         </div>
     </div>
-    <div class="col-lg-4"></div>
-        </div>
-        <div class="col-lg-12">
-        <div class="footer">
-      <p> © 2016 All Rights Reserved | Design by <a href="http://www.arrayform.com/">ArrayForm</a></p>
-    </div>
-    </div>
-  </div>
-</body>
-</html>
+</footer>
