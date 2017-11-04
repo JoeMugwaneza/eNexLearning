@@ -1,6 +1,6 @@
-<%= form_for @course, url: create_course_path do |f|%>
+<%= form_for @course, url: update_course_path do |f|%>
   <%= f.text_field :title, placeholder: "title ..." %><br>
-  <%= f.text_area :about, :class => "redactor", :rows => 100, :cols => 60 %><br><br>
+  <%= f.text_area :about,:class => "redactor", :rows => 100, :cols => 60 %><br>
   <%= f.hidden_field :instructor_id, value: current_user.id %>
   <%= f.submit %>
 <% end %>

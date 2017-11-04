@@ -1,5 +1,9 @@
 <h1><center><%= @course.title %></center></h1>
-<p><%= @course.about %></p>
+<p><%= @course.about.html_safe %></p>
+  <% if current_user %>
+    <a class="btn btn-default" href="/course_registrations/new?course_id=<%= @course.id %>" role="button">Enroll</a>
+  <% end %>
+<br>
 <% @chapters.each do |chapter| %>
   <a href="/chapters/<%= chapter.id %>"><%= chapter.title %></a>
 <% end %>

@@ -1,5 +1,5 @@
 Rails.application.routes.draw do
-  devise_for :users
+  devise_for :users, :controllers => { registrations: 'registrations'}
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
   root to:'subjects#index'
   get "/admin", to:'admins#index'
@@ -7,9 +7,11 @@ Rails.application.routes.draw do
   resources :courses, except: [:new, :create]
   resources :chapters, except: [:new, :create]
   resources :sections,  except: [:new, :create]
+  resources :course_registrations
 
   get "/subjects/:id/courses/new", to: 'courses#new', as: :new_course
   post "/subjects/:id/courses", to: 'courses#create', as: :create_course
+  patch "/courses/:id", to: 'courses#update', as: :update_course
   get "/courses/:id/chapters/new", to: 'chapters#new', as: :new_chapter
   post "/courses/:id/chapters", to: 'chapters#create', as: :create_chapter
   get "/chapters/:id/sections/new", to: 'sections#new', as: :new_section

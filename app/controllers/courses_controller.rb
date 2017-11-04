@@ -21,7 +21,18 @@ class CoursesController < ApplicationController
       render :new
     end
   end
-
+  def edit
+    find_course
+  end
+  def update
+    find_course
+    if  @course.update(course_params)
+      flash[:success] ="#{@course.title} sucessfully updated"
+      redirect_to course_path(@course)
+    else
+      render :edit
+    end
+  end
   private 
   def find_course
     @course = Course.find_by_id(params[:id])

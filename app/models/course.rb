@@ -7,7 +7,7 @@ class Course < ApplicationRecord
   validates_presence_of :title
   validates_presence_of :instructor_id
   validates_presence_of :subject_id
-  
+  validates_presence_of :about
   def modified_date
    self.updated_at.strftime("%d %b. %Y")
   end
