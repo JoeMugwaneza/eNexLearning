@@ -8,6 +8,35 @@ class ApplicationController < ActionController::Base
    devise_parameter_sanitizer.permit(:sign_in, keys: [:login, :password, :password_confirmation])
    devise_parameter_sanitizer.permit(:account_update, keys: [:username, :email, :password, :password_confirmation, :current_password])
   end
+
+  def authenticate_instructor!
+    unless current_user && current_user.role == "instructor" || current_user.role == "admin" || current_user.role == "super_admin"
+      flash[:danger] = "Access Denied!"
+      redirect_to "/" 
+    end
+  end
+
+  def authenticate_admin!
+    unless current_user && current_user.role == "admin"
+       flash[:danger] = "Access denied"
+       redirect_to :back || root_path
+     end 
+  end
+
+  def authenticate_superadmin!
+    unless current_user && current_user.role == "super_admin"
+      flash[:danger] = "Access denied, Good bye!!!"
+      redirect_to destroy_user_session_path(current_user)
+    end
+  end
+
+  def authenticate_user!
+    unless  current_user
+      flash[:warning] = "No thing to show!"
+      redirect_to root_path
+    end
+  end
+
   private
     def store_current_location
       if request.get?

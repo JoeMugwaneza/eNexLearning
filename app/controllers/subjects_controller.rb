@@ -1,4 +1,5 @@
 class SubjectsController < ApplicationController
+  before_action :authenticate_superadmin!, only:[:new, :create, :edit, :update]
   def index
     @subjects = Subject.all
     @threeSubjects = Subject.all.order("created_at ASC").limit(4)

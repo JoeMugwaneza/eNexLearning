@@ -1,6 +1,7 @@
 class User < ApplicationRecord
   attr_accessor :login
-  has_many :courses, foreign_key: :instructor_id
+  has_many :course_creations, foreign_key: :instructor_id
+  has_many :courses, through: :course_creations
   has_many :course_registrations, foreign_key: :learner_id
   has_many :lessons, through: :course_registrations
   # Include default devise modules. Others available are:

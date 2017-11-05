@@ -1,4 +1,5 @@
 class CourseRegistrationsController < ApplicationController
+  before_action :authenticate_user!
   def index
     @registrations = current_user.course_registrations
   end

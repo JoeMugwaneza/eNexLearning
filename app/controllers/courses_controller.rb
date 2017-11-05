@@ -1,4 +1,5 @@
 class CoursesController < ApplicationController
+  before_action :authenticate_instructor!, only:[:new, :create, :update, :edit]
   def index
     @courses = Course.all
   end
@@ -23,6 +24,10 @@ class CoursesController < ApplicationController
   end
   def edit
     find_course
+    unless @course.instructor == current_user
+      flash[:warning] = "You have no right to edit this course"
+      redirect_to course_path(@course)
+    end
   end
   def update
     find_course
