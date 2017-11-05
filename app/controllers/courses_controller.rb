@@ -9,6 +9,7 @@ class CoursesController < ApplicationController
   end
 
   def new
+    @instructors = User.where(role:"instructor")
     @course = Course.new
   end
 
@@ -19,6 +20,7 @@ class CoursesController < ApplicationController
       flash[:success] ="#{@course.title} sucessfully created under #{@course.subject.title} subject"
       redirect_to course_path(@course)
     else
+      @instructors = User.where(role:"instructor")
       render :new
     end
   end
@@ -46,6 +48,6 @@ class CoursesController < ApplicationController
     @subject = Subject.find_by_id(params[:id])
   end
   def course_params
-    params.require(:course).permit(:title, :instructor_id, :about)
+    params.require(:course).permit(:title,:about, :instructor_tokens => [] )
   end
 end

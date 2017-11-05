@@ -3,4 +3,4 @@
 <hr>
 <%= render "/courses/courses" %>
 
-<%= link_to "Add New Course", new_course_path %>
+<%= link_to "Add New Course", new_course_path if current_user.role == "admin" || current_user.role == "super_admin"%>
