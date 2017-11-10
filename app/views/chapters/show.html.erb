@@ -1,7 +1,7 @@
 <h1><center><%= @chapter.title %></center></h1>
-<p><%= @chapter.body %></p>
-<% @sections.each do |section| %>
-  <a href="/sections/<%= section.id %>"><%= section.title %></a>
-<% end %>
+<p class="text-center"><%= @chapter.body %></p>
+<br>
+<%= link_to "Add Section", new_course_chapter_section_path(@chapter.course, @chapter) if current_user && @chapter.course.instructors.include?(current_user)%>
+<br>
+<%= link_to "Continue to Sections", course_chapter_sections_path(@chapter.course,@chapter), class: "btn btn-primary" %>
 <hr>
-<%= link_to "Add Section", new_section_path if @chapter.course.instructors.include?(current_user)%>

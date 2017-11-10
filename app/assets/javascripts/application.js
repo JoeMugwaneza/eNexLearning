@@ -17,4 +17,5 @@
 //= require scaffold
 //= require redactor-rails
 //= require ckeditor/init
+//= require adminlte
 //= require_tree .

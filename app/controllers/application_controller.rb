@@ -10,16 +10,21 @@ class ApplicationController < ActionController::Base
   end
 
   def authenticate_instructor!
+    if current_user
     unless current_user && current_user.role == "instructor" || current_user.role == "admin" || current_user.role == "super_admin"
       flash[:danger] = "Access Denied!"
       redirect_to "/" 
     end
+    else
+      flash[:danger] = "Access denied, Good bye!!!"
+      redirect_to new_user_session_path
+    end
   end
 
   def authenticate_admin!
-    unless current_user && current_user.role == "admin"
+    unless current_user && current_user.role == "admin" || current_user && current_user.role = "super_admin"
        flash[:danger] = "Access denied"
-       redirect_to :back || root_path
+       redirect_to  root_path
      end 
   end
 
@@ -45,7 +50,7 @@ class ApplicationController < ActionController::Base
     end
 
     def after_sign_out_path_for(resource)
-      request.referrer || root_path
+       new_user_session_path
     end
 
 end

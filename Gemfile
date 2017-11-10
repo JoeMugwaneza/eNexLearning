@@ -64,3 +64,11 @@ gem 'dotenv-rails', require: 'dotenv/rails-now'
 
 #tokens selector
 gem 'chosen-rails'
+
+#admin lte
+gem 'font-awesome-sass'
+
+source 'https://rails-assets.org/' do 
+  gem 'rails-assets-adminlte'
+end
+
