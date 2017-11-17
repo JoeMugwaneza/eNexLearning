@@ -11,6 +11,9 @@
  * It is generally better to create a new file per style scope.
  *
  *= require redactor-rails
+ *= require chosen
+ *= require adminlte
+*= require skin-blue
  *= require_tree .
  *= require_self
  */
@@ -63,12 +66,12 @@
      width: 220px;
  }
 
- #page-content-wrapper {
+ #page-content-wrapper_1 {
      width: 100%;
      padding-top: 70px;
  }
 
- #wrapper.toggled #page-content-wrapper {
+ #wrapper.toggled #page-content-wrapper-1 {
      position: absolute;
      margin-right: -220px;
  }

@@ -50,8 +50,8 @@ group :development do
   gem 'spring-watcher-listen', '~> 2.0.0'
 end
 
-# Windows does not include zoneinfo files, so bundle the tzinfo-data gem
-gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
+# # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
+# gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 gem 'bootstrap-sass', '~> 3.3.6'
 gem 'jquery-rails', '~> 4.3.1'
 gem 'devise'
@@ -61,3 +61,14 @@ gem 'ckeditor', github: 'galetahub/ckeditor'
 
 #git ignore
 gem 'dotenv-rails', require: 'dotenv/rails-now'
+
+#tokens selector
+gem 'chosen-rails'
+
+#admin lte
+gem 'font-awesome-sass'
+
+source 'https://rails-assets.org/' do 
+  gem 'rails-assets-adminlte'
+end
+

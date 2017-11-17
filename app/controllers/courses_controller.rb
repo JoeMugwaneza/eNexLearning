@@ -10,7 +10,6 @@ class CoursesController < ApplicationController
 
   def new
     @instructors = User.where(role:"instructor")
-    @course = Course.new
   end
 
   def create

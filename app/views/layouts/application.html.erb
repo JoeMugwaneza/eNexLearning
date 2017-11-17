@@ -7,22 +7,29 @@
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
-  <body>
-    <%= render "layouts/sidebar" %>
-    <%= render "layouts/topnav" %>
+    <% if current_page?(admin_dashboard_path) %>
       <% flash.each do |key, value| %>
       <div class="alert alert-<%= key %>"><%= value %></div>
       <% end %>
-
-    <div id="page-content-wrapper">
-      <button type="button" class="hamburger is-closed" data-toggle="offcanvas">
-          <span class="hamb-top"></span>
-          <span class="hamb-middle"></span>
-          <span class="hamb-bottom"></span>
-      </button>
-      <div class="container">     
         <%= yield %>
+    <% else %>
+    <body>
+      <%= render "layouts/sidebar" %>
+      <%= render "layouts/topnav" %>
+        <% flash.each do |key, value| %>
+        <div class="alert alert-<%= key %>"><%= value %></div>
+        <% end %>
+
+      <div id="page-content-wrapper_1">
+        <button type="button" class="hamburger is-closed" data-toggle="offcanvas">
+            <span class="hamb-top"></span>
+            <span class="hamb-middle"></span>
+            <span class="hamb-bottom"></span>
+        </button>
+        <div class="container">     
+          <%= yield %>
+        </div>
       </div>
-    </div>
-  </body>
+    </body>
+    <% end %>
 </html>

@@ -14,7 +14,7 @@
             <ul class="meta-search">
               <li><i class="glyphicon glyphicon-tags"></i> <span><%= result.title if result.class.name == "Course"%> <%= result.course.title if result.class.name == "Chapter" %> <%= result.chapter.course.title if result.class.name == "Section" %></span></li>
               <li><i class="glyphicon glyphicon-time"></i> <span><%= result.modified_date if result.class.name == "Course" %> <%= result.course.modified_date  if result.class.name == "Chapter" %> <%= result.chapter.course.modified_date  if result.class.name == "Section" %></span></li>
-              <li><i class="glyphicon glyphicon-user"></i> <span><%= result.instructor.first_name if result.class.name == "Course" %> <%= result.course.instructor.first_name  if result.class.name == "Chapter" %> <%=result.chapter.course.instructor.first_name  if result.class.name == "Section" %></span></li>
+     
               <li><i class="glyphicon glyphicons-paperclip"></i> <small><%= result.subject.title if result.class.name == "Course" %> <%= result.course.subject.title  if result.class.name == "Chapter" %> <%= result.chapter.course.subject.title  if result.class.name == "Section" %></small></li>
             </ul>
           </div>
@@ -25,17 +25,17 @@
               <p><%=truncate("#{result.about}", length: 240) { link_to "Continue", "/courses/#{result.id}" } %></p> 
                 <li>
                   <% result.chapters.each do |chapter| %>
-                    <ul><a href="/chapters/<%= chapter.id %>"><small><b>Chapter:</b><%= chapter.title %></small></a></ul>
+                    <ul><a href="<%= course_chapter_path(chapter.course.id, chapter.id) %>"><small><b>Chapter:</b><%= chapter.title %></small></a></ul>
                   <% end %>
                 </li>  
             <% elsif result.class.name == "Chapter"%>
-              <h3><a href="/chapters/<%= result.id %>"><b>Chapter:</b><%= result.title %></a></h3>
+              <h3><a href="<%= course_chapter_path(result.course.id, result.id) %>"><b>Chapter:</b><%= result.title %></a></h3>
               <p><%=truncate("#{result.body}", length: 240) { link_to "Continue", "/chapters/#{result.id}" } %></p>  
               <% result.sections.each do |section| %>
-                <ul><a href="/sections/<%= section.id %>"><small><b>Section:</b><%= section.title %></small></a></ul>
+                <ul><a href="<%=course_chapter_section_path(section.chapter.course.id, section.chapter.id, section.id)%>"><small><b>Section:</b><%= section.title %></small></a></ul>
               <% end %> 
             <% elsif result.class.name == "Section"%>
-              <h3><a href="/sections/<%= result.id %>"><b>Section:</b><%= result.title %></a></h3>
+              <h3><a href="<%=course_chapter_section_path(result.chapter.course.id, result.chapter.id, result.id) %>"><b>Section:</b><%= result.title %></a></h3>
               <p><%= truncate("#{result.content}".html_safe, length: 240) { link_to "Continue", "/sections/#{result.id} "}%></p> 
             <% end %>         
             <span class="plus"><a href="#" title="Lorem ipsum"><i class="glyphicon glyphicon-plus"></i></a></span>

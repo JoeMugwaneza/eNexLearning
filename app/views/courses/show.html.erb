@@ -3,9 +3,19 @@
   <% if current_user && current_user.role == "student" %>
     <a class="btn btn-default" href="/course_registrations/new?course_id=<%= @course.id %>" role="button">Enroll</a>
   <% end %>
+<h4>Instructors</h4>
+
+<!-- instructor --> 
+<ul>
+  <% @course.instructors.each do |instructor| %>
+    <li><%= instructor.first_name %> <%= instructor.last_name %></li>
+  <% end %>
+</ul>
 <br>
+<!-- course chapters -->
 <% @chapters.each do |chapter| %>
-  <a href="/chapters/<%= chapter.id %>"><%= chapter.title %></a>
+  <a href="<%= course_chapter_path(@course, chapter) %>"><%= chapter.title %></a>
 <% end %>
 <hr>
-<%= link_to "Add Chapter", new_chapter_path if @course.instructors.include?(current_user) || current_user.role == "admin" || current_user.role == "super_admin"%>
+<!-- link to the course chapters -->
+<%= link_to "Add Chapter", new_course_chapter_path(@course), class: "btn btn-primary" if current_user && @course.instructors.include?(current_user) %>

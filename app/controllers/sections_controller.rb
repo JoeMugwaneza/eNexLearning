@@ -1,12 +1,16 @@
 class SectionsController < ApplicationController
   before_action :authenticate_instructor!, only:[:new, :create, :edit, :update]
+  def index
+    find_chapter
+    @sections = @chapter.sections
+  end
   def show
     find_section
   end
 
   def new
     find_chapter
-    if @chapter.course.instructors.include?(current_user)
+    if @chapter.course.instructors.include?(current_user) || current_user.role == "super_admin"
     @section = Section.new
     else
       flash[:warning] = "You can't add a section to the course which is not yours!"
@@ -19,7 +23,7 @@ class SectionsController < ApplicationController
     @section = @chapter.sections.build(section_params)
     if @section.save
       flash[:success] = "#{@section.title} sucessfully added to #{@chapter.title} chapter"
-      redirect_to section_path(@section)
+      redirect_to course_chapter_section_path(@section.chapter.course, @section.chapter,@section)
     else
       render :new
     end
@@ -31,7 +35,7 @@ class SectionsController < ApplicationController
   end
 
   def find_chapter
-    @chapter = Chapter.find_by_id(params[:id])
+    @chapter = Chapter.find_by_id(params[:chapter_id])
   end
 
   def section_params

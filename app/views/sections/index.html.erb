@@ -1,0 +1,38 @@
+
+<div >
+  <div class=" well well-sm  bg-white borderZero"  uib-dropdown >
+    <div class="btn-group date-block btn-group-justified font-small dropdown" data-toggle="buttons">
+        <label href="#home" data-toggle="tab" class="btn btn-default  next font-small semiBold" title="Next Day" style="font-size:12px; border-radius:0;" id="button-home">
+          Welcome!
+        </label>
+        
+        <% @sections.each do |section| %>
+        <label  href="#tab_<%= section.id %>" data-toggle="tab" class="btn btn-default previous text-right font-small semiBold button-section" title="Previous Day" style="font-size:12px;">
+          <%= section.title %>
+        </label>
+        <% end %>
+    </div>   
+  </div>
+  <div id="myTabContent" class="tab-content">
+    <div class="tab-pane fade active in" id="home">
+      <p class="">This is a chapter welcoming page!</p>
+    </div>
+    <% @sections.each do |section| %>
+    <div class="tab-pane fade" id="tab_<%= section.id %>">
+      <p class=""><%= section.content.html_safe %></p>
+    </div>
+    <% end %>
+  </div>
+</div>
+<script type="text/javascript">
+  $('#button-home').on({
+    click: function(){
+      $(this).css('background-color', '#3399ff'); 
+    },
+  });
+  $('.button-section').on({
+    click: function(){
+      $(this).css('background-color', '#3399ff'); 
+    },
+  });
+</script>
