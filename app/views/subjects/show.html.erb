@@ -1,9 +1,6 @@
 <h1><center><%= @subject.title %></center></h1>
 <p><%= @subject.description %></p>
-<% @courses.each do |course| %>
-  <a href="/courses/<%= course.id %>"><%= course.title %></a>
-<% end %>
 <hr>
 <%= render "/courses/courses" %>
 
-<%= link_to "Add New Course", new_course_path %>
+<%= link_to "Add New Course", new_course_path if current_user.role == "admin" || current_user.role == "super_admin"%>

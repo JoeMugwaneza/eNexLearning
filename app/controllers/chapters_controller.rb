@@ -1,4 +1,5 @@
 class ChaptersController < ApplicationController
+  before_action :authenticate_instructor!, only:[:new, :create, :edit, :update]
   def index
     
   end
@@ -8,7 +9,13 @@ class ChaptersController < ApplicationController
     @sections = @chapter.sections
   end
   def new
-   @chapter = Chapter.new 
+    find_course
+    if @course.instructors.include?(current_user)
+     @chapter = Chapter.new 
+    else
+      flash[:warning] = "You can't add a new chapter to the course which is not yours"
+      redirect_to course_path(@course)
+    end
   end
   def create
     find_course

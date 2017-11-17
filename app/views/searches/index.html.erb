@@ -1,0 +1,47 @@
+<div class="container">
+    <hgroup class="mb20">
+    <center><h1>Search Results</h1></center>
+    <h2 class="lead"><strong class="text-danger"><%= @results.length %></strong> results were found for the search for <strong class="text-danger"><%= params[:query] %></strong></h2>               
+  </hgroup>
+
+    <section class="col-xs-12 col-sm-6 col-md-12">
+      <% @results.each do |result|%>
+        <article class="search-result row">
+          <div class="col-xs-12 col-sm-12 col-md-3">
+            <a href="#" title="Lorem ipsum" class="thumbnail"><img src=<%="#{result.image if result.class.name == "Course"} #{result.course.image if result.class.name == "Chapter"} #{result.chapter.course.image if result.class.name == "Section"}"%> alt="Lorem ipsum" /></a>
+          </div>
+          <div class="col-xs-12 col-sm-12 col-md-2">
+            <ul class="meta-search">
+              <li><i class="glyphicon glyphicon-tags"></i> <span><%= result.title if result.class.name == "Course"%> <%= result.course.title if result.class.name == "Chapter" %> <%= result.chapter.course.title if result.class.name == "Section" %></span></li>
+              <li><i class="glyphicon glyphicon-time"></i> <span><%= result.modified_date if result.class.name == "Course" %> <%= result.course.modified_date  if result.class.name == "Chapter" %> <%= result.chapter.course.modified_date  if result.class.name == "Section" %></span></li>
+              <li><i class="glyphicon glyphicon-user"></i> <span><%= result.instructor.first_name if result.class.name == "Course" %> <%= result.course.instructor.first_name  if result.class.name == "Chapter" %> <%=result.chapter.course.instructor.first_name  if result.class.name == "Section" %></span></li>
+              <li><i class="glyphicon glyphicons-paperclip"></i> <small><%= result.subject.title if result.class.name == "Course" %> <%= result.course.subject.title  if result.class.name == "Chapter" %> <%= result.chapter.course.subject.title  if result.class.name == "Section" %></small></li>
+            </ul>
+          </div>
+          <div class="col-xs-12 col-sm-12 col-md-7 excerpet">
+            <% myUrl = "#{result.class.name.downcase}"+"s" %>
+            <% if result.class.name == "Course" %>
+              <h3><a href="/courses/<%= result.id %>"><b>Course:</b><%= result.title %></a></h3>
+              <p><%=truncate("#{result.about}", length: 240) { link_to "Continue", "/courses/#{result.id}" } %></p> 
+                <li>
+                  <% result.chapters.each do |chapter| %>
+                    <ul><a href="/chapters/<%= chapter.id %>"><small><b>Chapter:</b><%= chapter.title %></small></a></ul>
+                  <% end %>
+                </li>  
+            <% elsif result.class.name == "Chapter"%>
+              <h3><a href="/chapters/<%= result.id %>"><b>Chapter:</b><%= result.title %></a></h3>
+              <p><%=truncate("#{result.body}", length: 240) { link_to "Continue", "/chapters/#{result.id}" } %></p>  
+              <% result.sections.each do |section| %>
+                <ul><a href="/sections/<%= section.id %>"><small><b>Section:</b><%= section.title %></small></a></ul>
+              <% end %> 
+            <% elsif result.class.name == "Section"%>
+              <h3><a href="/sections/<%= result.id %>"><b>Section:</b><%= result.title %></a></h3>
+              <p><%= truncate("#{result.content}".html_safe, length: 240) { link_to "Continue", "/sections/#{result.id} "}%></p> 
+            <% end %>         
+            <span class="plus"><a href="#" title="Lorem ipsum"><i class="glyphicon glyphicon-plus"></i></a></span>
+          </div>
+          <span class="clearfix borda"></span>
+        </article>
+      <% end %>
+  </section>
+</div>

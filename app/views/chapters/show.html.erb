@@ -4,4 +4,4 @@
   <a href="/sections/<%= section.id %>"><%= section.title %></a>
 <% end %>
 <hr>
-<%= link_to "Add Section", new_section_path%>
+<%= link_to "Add Section", new_section_path if @chapter.course.instructors.include?(current_user)%>

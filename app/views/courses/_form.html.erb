@@ -1,6 +1,26 @@
 <%= form_for @course, url: create_course_path do |f|%>
+
+  <% if @course.errors.any? %>
+     <div id="error_explanation">
+       <h2><%= pluralize(@course.errors.count, "error") %> prohibited this course from being saved:</h2>
+
+       <ul>
+       <% @course.errors.full_messages.each do |msg| %>
+         <li><%= msg %></li>
+       <% end %>
+       </ul>
+     </div>
+   <% end %>
+
   <%= f.text_field :title, placeholder: "title ..." %><br>
-  <%= f.text_area :about, placeholder: "about the course...." %><br>
-  <%= f.hidden_field :instructor_id, value: current_user.id %>
+  <%= f.text_area :about, :class => "redactor", :rows => 100, :cols => 60 %><br><br>
+    <% @instructors.each do |instructor|%>
+      <label for="instructor<%= instructor.id %>">
+        <li id="stream_item">
+          <span class="list-group-item"><%= instructor.first_name %></span>
+          <%= check_box_tag "course[instructor_tokens][]", instructor.id, @course.instructors.include?(instructor), id: "instructor#{instructor.id}"  %>
+        </li>
+      </label>
+    <% end %>
   <%= f.submit %>
 <% end %>

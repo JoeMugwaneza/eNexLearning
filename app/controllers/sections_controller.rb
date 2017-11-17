@@ -1,10 +1,17 @@
 class SectionsController < ApplicationController
+  before_action :authenticate_instructor!, only:[:new, :create, :edit, :update]
   def show
     find_section
   end
 
   def new
+    find_chapter
+    if @chapter.course.instructors.include?(current_user)
     @section = Section.new
+    else
+      flash[:warning] = "You can't add a section to the course which is not yours!"
+      redirect_to chapter_path(@chapter)
+    end
   end
 
   def create
