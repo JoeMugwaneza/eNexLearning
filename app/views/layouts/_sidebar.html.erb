@@ -6,10 +6,15 @@
     <ul class="nav sidebar-nav">
         <li class="sidebar-brand">
             <a href="#">
-               <img src="https://lh3.googleusercontent.com/-BHXLTdggWGE/AAAAAAAAAAI/AAAAAAAAAMY/r2eq3IhhIUE/s640/photo.jpg" alt="..." class="img-circle myProfile" >
+               <% if current_user %>
+               <img src="<%= current_user.user_profile %>" alt="..." class="img-circle myProfile" ><br>
+               <small style="color: white;"><%= current_user.first_name %> <%= current_user.last_name %></small>
+               <% else %>
+               <img src="http://res.cloudinary.com/nexpals/image/upload/v1498737192/Nex-Pals-logo3_iifsxy.jpg" alt="..." class="img-circle myProfile" ><br>
                eNexLearning
+               <% end %>
             </a>
-            <small style="color: white;"><%= current_user.first_name if current_user%></small>
+            
         </li>
         <li>
             <a href="/">Home</a>
@@ -39,7 +44,7 @@
             <a href="#">Contact</a>
         </li>
         <li>
-            <a href="https://twitter.com/maridlcrmn">Follow me</a>
+            <a href="/course_registrations">My Courses</a>
         </li>
         <% if user_signed_in? %>
           <li>

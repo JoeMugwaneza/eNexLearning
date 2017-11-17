@@ -26,7 +26,9 @@
  .nav .open > a, 
  .nav .open > a:hover, 
  .nav .open > a:focus {background-color: transparent;}
-
+ .collapse .navbar-collapse {
+  background-color: blue;
+ }
  /*-------------------------------*/
  /*           Wrappers            */
  /*-------------------------------*/
@@ -51,7 +53,7 @@
      margin-left: -220px;
      overflow-y: auto;
      overflow-x: hidden;
-     background: #1a1a1a;
+     background: #333333;
      -webkit-transition: all 0.5s ease;
      -moz-transition: all 0.5s ease;
      -o-transition: all 0.5s ease;
@@ -113,7 +115,7 @@
  }
  .sidebar-nav li:first-child a {
      color: #fff;
-     background-color: #1a1a1a;
+     background-color: #333333;
  }
  .sidebar-nav li:nth-child(2):before {
      background-color: #ec1b5a;   
@@ -189,12 +191,12 @@
 
  .hamburger {
    position: fixed;
-   top: 20px;  
+   top: 10px;  
    z-index: 999;
    display: block;
    width: 32px;
    height: 32px;
-   margin-left: 15px;
+   margin-left: 5px;
    background: transparent;
    border: none;
  }
@@ -236,7 +238,7 @@
  .hamburger.is-closed .hamb-top,
  .hamburger.is-closed .hamb-middle,
  .hamburger.is-closed .hamb-bottom {
-   background-color: #1a1a1a;
+   background-color: #333333;
  }
  .hamburger.is-closed .hamb-top { 
    top: 5px; 
@@ -262,7 +264,7 @@
  .hamburger.is-open .hamb-top,
  .hamburger.is-open .hamb-middle,
  .hamburger.is-open .hamb-bottom {
-   background-color: #1a1a1a;
+   background-color: #333333;
  }
  .hamburger.is-open .hamb-top,
  .hamburger.is-open .hamb-bottom {
@@ -316,7 +318,8 @@
 
 /* topnav*/
 .top-nav {
-  margin-left: 8%;
+  margin-left: 0%;
+  color: white;
 }
 
 /*profile card*/
@@ -343,4 +346,23 @@
     -moz-border-radius: 50%;
     border-radius: 50%;
     border: 5px solid rgba(255,255,255,0.5);
+}
+
+
+.hamburger.is-closed .hamb-top, .hamburger.is-closed .hamb-middle, .hamburger.is-closed .hamb-bottom {
+    background-color: #888;
+    height: 2px;
+}
+
+.hamburger.is-closed .hamb-top, .hamburger.is-closed .hamb-middle, .hamburger.is-closed .hamb-bottom, .hamburger.is-open .hamb-top, .hamburger.is-open .hamb-middle, .hamburger.is-open .hamb-bottom {
+    position: absolute;
+    left: 0;
+    height: 4px;
+    width: 100%;
+}
+
+
+.hamburger.is-closed:hover {
+    background-color: #ddd;
+    padding: 15px 15px;
 }

@@ -3,4 +3,3 @@ class RemovePasswordDigestToUsers < ActiveRecord::Migration[5.1]
     remove_column :users, :password_digest, :string
   end
 end
-u

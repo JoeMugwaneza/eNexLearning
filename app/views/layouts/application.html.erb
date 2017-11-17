@@ -14,19 +14,18 @@
         <%= yield %>
     <% else %>
     <body>
-      <%= render "layouts/sidebar" %>
-      <%= render "layouts/topnav" %>
-        <% flash.each do |key, value| %>
-        <div class="alert alert-<%= key %>"><%= value %></div>
-        <% end %>
-
-      <div id="page-content-wrapper_1">
-        <button type="button" class="hamburger is-closed" data-toggle="offcanvas">
+      <div id="page-content-wrapper">
+        <%= render "layouts/sidebar" %>
+        <%= render "layouts/topnav" %>
+          <% flash.each do |key, value| %>
+          <div class="alert alert-<%= key %>"><%= value %></div>
+          <% end %>
+        <button type="button" class="hamburger is-closed btn-circle btn-lg" data-toggle="offcanvas">
             <span class="hamb-top"></span>
             <span class="hamb-middle"></span>
             <span class="hamb-bottom"></span>
         </button>
-        <div class="container">     
+        <div class="container-fluid">     
           <%= yield %>
         </div>
       </div>
