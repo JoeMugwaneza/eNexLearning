@@ -301,38 +301,12 @@
                 <i class="fa fa-angle-left pull-right"></i>
               </span>
             </a>
-            <ul class="treeview-menu">
-              <li class="active"><a href="index.html"><i class="fa fa-circle-o"></i> Dashboard v1</a></li>
-              <li><a href="index2.html"><i class="fa fa-circle-o"></i> Dashboard v2</a></li>
-            </ul>
           </li>
+
           <li class="treeview">
             <a href="#">
-              <i class="fa fa-files-o"></i>
-              <span>Layout Options</span>
-              <span class="pull-right-container">
-                <span class="label label-primary pull-right">4</span>
-              </span>
-            </a>
-            <ul class="treeview-menu">
-              <li><a href="pages/layout/top-nav.html"><i class="fa fa-circle-o"></i> Top Navigation</a></li>
-              <li><a href="pages/layout/boxed.html"><i class="fa fa-circle-o"></i> Boxed</a></li>
-              <li><a href="pages/layout/fixed.html"><i class="fa fa-circle-o"></i> Fixed</a></li>
-              <li><a href="pages/layout/collapsed-sidebar.html"><i class="fa fa-circle-o"></i> Collapsed Sidebar</a></li>
-            </ul>
-          </li>
-          <li>
-            <a href="pages/widgets.html">
-              <i class="fa fa-th"></i> <span>Widgets</span>
-              <span class="pull-right-container">
-                <small class="label pull-right bg-green">new</small>
-              </span>
-            </a>
-          </li>
-          <li class="treeview">
-            <a href="#">
-              <i class="fa fa-pie-chart"></i>
-              <span>Charts</span>
+              <i class="fa fa-graduation-cap"></i>
+              <span>Subjects</span>
               <span class="pull-right-container">
                 <i class="fa fa-angle-left pull-right"></i>
               </span>
@@ -346,8 +320,8 @@
           </li>
           <li class="treeview">
             <a href="#">
-              <i class="fa fa-laptop"></i>
-              <span>UI Elements</span>
+              <i class="fa fa-folder"></i>
+              <span>Courses</span>
               <span class="pull-right-container">
                 <i class="fa fa-angle-left pull-right"></i>
               </span>
@@ -388,7 +362,8 @@
           </li>
           <li>
             <a href="pages/calendar.html">
-              <i class="fa fa-calendar"></i> <span>Calendar</span>
+              <!-- showing the time course will be starting course starting -->
+              <i class="fa fa-calendar"></i> <span>Schedule</span>
               <span class="pull-right-container">
                 <small class="label pull-right bg-red">3</small>
                 <small class="label pull-right bg-blue">17</small>
@@ -397,7 +372,7 @@
           </li>
           <li>
             <a href="pages/mailbox/mailbox.html">
-              <i class="fa fa-envelope"></i> <span>Mailbox</span>
+              <i class="fa fa-envelope"></i> <span>Sent Mail</span>
               <span class="pull-right-container">
                 <small class="label pull-right bg-yellow">12</small>
                 <small class="label pull-right bg-green">16</small>
@@ -407,26 +382,7 @@
           </li>
           <li class="treeview">
             <a href="#">
-              <i class="fa fa-folder"></i> <span>Examples</span>
-              <span class="pull-right-container">
-                <i class="fa fa-angle-left pull-right"></i>
-              </span>
-            </a>
-            <ul class="treeview-menu">
-              <li><a href="pages/examples/invoice.html"><i class="fa fa-circle-o"></i> Invoice</a></li>
-              <li><a href="pages/examples/profile.html"><i class="fa fa-circle-o"></i> Profile</a></li>
-              <li><a href="pages/examples/login.html"><i class="fa fa-circle-o"></i> Login</a></li>
-              <li><a href="pages/examples/register.html"><i class="fa fa-circle-o"></i> Register</a></li>
-              <li><a href="pages/examples/lockscreen.html"><i class="fa fa-circle-o"></i> Lockscreen</a></li>
-              <li><a href="pages/examples/404.html"><i class="fa fa-circle-o"></i> 404 Error</a></li>
-              <li><a href="pages/examples/500.html"><i class="fa fa-circle-o"></i> 500 Error</a></li>
-              <li><a href="pages/examples/blank.html"><i class="fa fa-circle-o"></i> Blank Page</a></li>
-              <li><a href="pages/examples/pace.html"><i class="fa fa-circle-o"></i> Pace Page</a></li>
-            </ul>
-          </li>
-          <li class="treeview">
-            <a href="#">
-              <i class="fa fa-share"></i> <span>Multilevel</span>
+              <i class="fa fa-share"></i> <span>Instructors Resources</span>
               <span class="pull-right-container">
                 <i class="fa fa-angle-left pull-right"></i>
               </span>
@@ -457,11 +413,7 @@
               <li><a href="#"><i class="fa fa-circle-o"></i> Level One</a></li>
             </ul>
           </li>
-          <li><a href="https://adminlte.io/docs"><i class="fa fa-book"></i> <span>Documentation</span></a></li>
-          <li class="header">LABELS</li>
-          <li><a href="#"><i class="fa fa-circle-o text-red"></i> <span>Important</span></a></li>
-          <li><a href="#"><i class="fa fa-circle-o text-yellow"></i> <span>Warning</span></a></li>
-          <li><a href="#"><i class="fa fa-circle-o text-aqua"></i> <span>Information</span></a></li>
+          <li><a href="https://adminlte.io/docs"><i class="fa fa-book"></i> <span>Nex Support</span></a></li>
         </ul>
       </section>
       <!-- /.sidebar -->
@@ -489,14 +441,14 @@
             <!-- small box -->
             <div class="small-box bg-aqua">
               <div class="inner">
-                <h3>150</h3>
+                <h3><%= Course.all.count %></h3>
 
                 <p>Courses</p>
               </div>
               <div class="icon">
                 <i class="ion ion-bag"></i>
               </div>
-              <a href="#" class="small-box-footer">More info <i class="fa fa-arrow-circle-right"></i></a>
+              <a href="<%= courses_path %>" class="small-box-footer">More info <i class="fa fa-arrow-circle-right"></i></a>
             </div>
           </div>
           <!-- ./col -->
@@ -504,7 +456,7 @@
             <!-- small box -->
             <div class="small-box bg-green">
               <div class="inner">
-                <h3>53<sup style="font-size: 20px">%</sup></h3>
+                <h3><%= User.where(role: "instructor").count %></sup></h3>
 
                 <p>Instructors</p>
               </div>
@@ -519,7 +471,7 @@
             <!-- small box -->
             <div class="small-box bg-yellow">
               <div class="inner">
-                <h3>44</h3>
+                <h3><%= User.where(role:"student").count %></h3>
 
                 <p>Student Registrations</p>
               </div>
@@ -536,7 +488,7 @@
               <div class="inner">
                 <h3>65</h3>
 
-                <p>Unique Visitors</p>
+                <p>Organizations</p>
               </div>
               <div class="icon">
                 <i class="ion ion-pie-graph"></i>
@@ -569,10 +521,10 @@
 
             <!-- Chat box -->
             <div class="box box-success">
-              <div class="box-header">
-                <i class="fa fa-comments-o"></i>
+              <div class="box-header cursor-header" onclick="showSubject()" id="subject-header">
+                <i class="fa fa-graduation-cap"></i>
 
-                <h3 class="box-title">Chat</h3>
+                <h3 class="box-title">Academic</h3>
 
                 <div class="box-tools pull-right" data-toggle="tooltip" title="Status">
                   <div class="btn-group" data-toggle="btn-toggle">
@@ -584,62 +536,33 @@
               </div>
               <div class="box-body chat" id="chat-box">
                 <!-- chat item -->
-                <div class="item">
-                  <img src="<%= current_user.user_profile %>" alt="user image" class="online">
+                <dir id="subject-box">
+                  <% Subject.all.each do |subject| %>
+                    <div class="item">
+                      <img src="<%= subject.image %>" alt="user image" class="online">
 
-                  <p class="message">
-                    <a href="#" class="name">
-                      <small class="text-muted pull-right"><i class="fa fa-clock-o"></i> 2:15</small>
-                      Mike Doe
-                    </a>
-                    I would like to meet you to discuss the latest news about
-                    the arrival of the new theme. They say it is going to be one the
-                    best themes on the market
-                  </p>
-                  <div class="attachment">
-                    <h4>Attachments:</h4>
+                      <p class="message">
+                        <a href="#" class="name">
+                          <small class="text-muted pull-right"><i class="fa fa-clock-o"></i> <%= subject.updated_at %></small>
+                          <%= subject.title %>
+                        </a>
+                        <p style="color: #000;"> <%= subject.description %></p>
+                      </p>
+                      <div class="attachment">
+                        <h4>Details:</h4>
 
-                    <p class="filename">
-                      Theme-thumbnail-image.jpg
-                    </p>
+                        <p class="filename">
+                          Theme-thumbnail-image.jpg
+                        </p>
 
-                    <div class="pull-right">
-                      <button type="button" class="btn btn-primary btn-sm btn-flat">Open</button>
+                        <div class="pull-right">
+                          <button type="button" class="btn btn-primary btn-sm btn-flat">Open</button>
+                        </div>
+                      </div>
+                      <!-- /.attachment -->
                     </div>
-                  </div>
-                  <!-- /.attachment -->
-                </div>
-                <!-- /.item -->
-                <!-- chat item -->
-                <div class="item">
-                  <img src="<%= current_user.user_profile %>" alt="user image" class="offline">
-
-                  <p class="message">
-                    <a href="#" class="name">
-                      <small class="text-muted pull-right"><i class="fa fa-clock-o"></i> 5:15</small>
-                      <%= current_user.first_name %> <%= current_user.last_name %>
-                    </a>
-                    I would like to meet you to discuss the latest news about
-                    the arrival of the new theme. They say it is going to be one the
-                    best themes on the market
-                  </p>
-                </div>
-                <!-- /.item -->
-                <!-- chat item -->
-                <div class="item">
-                  <img src="<%= current_user.user_profile %>" alt="user image" class="offline">
-
-                  <p class="message">
-                    <a href="#" class="name">
-                      <small class="text-muted pull-right"><i class="fa fa-clock-o"></i> 5:30</small>
-                      Susan Doe
-                    </a>
-                    I would like to meet you to discuss the latest news about
-                    the arrival of the new theme. They say it is going to be one the
-                    best themes on the market
-                  </p>
-                </div>
-                <!-- /.item -->
+                  <% end %>   
+                </dir>
               </div>
               <!-- /.chat -->
               <div class="box-footer">
@@ -656,10 +579,10 @@
 
             <!-- TO DO List -->
             <div class="box box-primary">
-              <div class="box-header">
+              <div class="box-header cursor-header" id="myTasks" onclick="showTasks()">
                 <i class="ion ion-clipboard"></i>
 
-                <h3 class="box-title">To Do List</h3>
+                <h3 class="box-title">Upcoming Events</h3>
 
                 <div class="box-tools pull-right">
                   <ul class="pagination pagination-sm inline">
@@ -672,7 +595,7 @@
                 </div>
               </div>
               <!-- /.box-header -->
-              <div class="box-body">
+              <div class="box-body" id="tasks-list">
                 <!-- See dist/js/pages/dashboard.js to activate the todoList plugin -->
                 <ul class="todo-list">
                   <li>
@@ -769,7 +692,7 @@
 
             <!-- quick email widget -->
             <div class="box box-info">
-              <div class="box-header">
+              <div class="box-header cursor-header" onclick="showEmail()">
                 <i class="fa fa-envelope"></i>
 
                 <h3 class="box-title">Quick Email</h3>
@@ -781,7 +704,7 @@
                 </div>
                 <!-- /. tools -->
               </div>
-              <div class="box-body">
+              <div class="box-body" id="my-email">
                 <form action="#" method="post">
                   <div class="form-group">
                     <input type="email" class="form-control" name="emailto" placeholder="Email to:">
@@ -930,7 +853,17 @@
               <!-- /.box-header -->
               <div class="box-body no-padding">
                 <!--The calendar -->
-                <div id="calendar" style="width: 100%"></div>
+                <div id="calendar" style="width: 100%; color: #000">
+                  <%= month_calendar course: @courses do |date, courses| %>
+                    <%= date.day %>
+
+                    <% courses.each do |course| %>
+                      <div>
+                        <%= course.title %>
+                      </div>
+                    <% end %>
+                  <% end %>
+                </div>
               </div>
               <!-- /.box-body -->
               <div class="box-footer text-black">
@@ -988,11 +921,7 @@
     </div>
     <!-- /.content-wrapper -->
     <footer class="main-footer">
-      <div class="pull-right hidden-xs">
-        <b>Version</b> 2.4.0
-      </div>
-      <strong>Copyright &copy; 2014-2016 <a href="https://adminlte.io">Almsaeed Studio</a>.</strong> All rights
-      reserved.
+      <strong>Copyright &copy; <%= Time.now.year %><a href="http://nexpals.com">Nexpals Ltd</a>.</strong>
     </footer>
 
     <!-- Control Sidebar -->
@@ -1206,6 +1135,18 @@
            $('body').removeClass('sidebar-open');
          }; 
         }  
+    };
+
+    function showSubject(){
+      $('#subject-box').toggle('swing');
+    };
+
+    function showTasks(){
+      $('#tasks-list').toggle('swing');
+    }
+
+    function  showEmail(){
+      $('#my-email').toggle('swing');
     }
   </script>
 </body>

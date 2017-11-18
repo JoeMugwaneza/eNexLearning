@@ -20,4 +20,7 @@ class Course < ApplicationRecord
   def instructor_tokens=(ids)
     self.instructor_ids = ids
   end
+  def sart_time
+    self.created_at
+  end
 end

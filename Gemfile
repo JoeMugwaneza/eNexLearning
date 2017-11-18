@@ -72,4 +72,5 @@ gem 'font-awesome-sass'
 source 'https://rails-assets.org/' do 
   gem 'rails-assets-adminlte'
 end
-
+# simple calender gem
+gem "simple_calendar", "~> 2.0"

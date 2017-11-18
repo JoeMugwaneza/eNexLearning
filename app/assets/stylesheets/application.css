@@ -13,6 +13,7 @@
  *= require chosen
  *= require adminlte
  *= require skin-blue
+ *= require simple_calendar
  *= require_tree .
  *= require_self
  */
