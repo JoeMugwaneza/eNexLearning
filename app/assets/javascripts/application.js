@@ -17,4 +17,6 @@
 //= require scaffold
 //= require ckeditor/init
 //= require adminlte
+//= require angular
+//= require turbolinks
 //= require_tree .
