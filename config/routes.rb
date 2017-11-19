@@ -20,4 +20,10 @@ Rails.application.routes.draw do
   post "/chapters/:chapter_id/sections", to: 'sections#create', as: :create_section
   get "/search", to: 'searches#search', as: :search
   get "/search_results", to: 'searches#index', as: :search_results
+
+  namespace :api do
+    namespace :v1 do
+      resources :sections_apis
+    end
+  end
 end
