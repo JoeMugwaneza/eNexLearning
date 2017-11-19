@@ -11,12 +11,12 @@
 // about supported directives.
 //
 //= require jquery 
+//= require angular
+//= require app
 //= require bootstrap-sprockets
-//= require turbolinks
 //= require chosen-jquery
 //= require scaffold
 //= require ckeditor/init
 //= require adminlte
-//= require angular
 //= require turbolinks
 //= require_tree .
